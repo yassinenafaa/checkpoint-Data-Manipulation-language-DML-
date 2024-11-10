@@ -1,0 +1,75 @@
+To insert the data into the tables based on the provided relational model and data, we will use the INSERT INTO SQL statement. Here is the SQL code to insert the rows into the corresponding tables:
+
+Data to be Inserted
+Based on the image you provided, we have the following rows for the tables:
+
+PRODUCT Table:
+
+ProductID: 1, ProductName: 'Laptop', Price: 1500.00, StockQuantity: 100, Category: 'Electronics'
+ProductID: 2, ProductName: 'Smartphone', Price: 700.00, StockQuantity: 150, Category: 'Electronics'
+ProductID: 3, ProductName: 'Headphones', Price: 150.00, StockQuantity: 200, Category: 'Accessories'
+CUSTOMER Table:
+
+CustomerID: 101, FirstName: 'John', LastName: 'Doe', Email: 'john.doe@example.com', Phone: '1234567890'
+CustomerID: 102, FirstName: 'Jane', LastName: 'Smith', Email: 'jane.smith@example.com', Phone: '9876543210'
+ORDERS Table:
+
+OrderID: 1001, OrderDate: '2024-11-01', CustomerID: 101, TotalAmount: 2200.00
+OrderID: 1002, OrderDate: '2024-11-02', CustomerID: 102, TotalAmount: 850.00
+ORDER_ITEM Table:
+
+OrderItemID: 1, OrderID: 1001, ProductID: 1, Quantity: 1, UnitPrice: 1500.00
+OrderItemID: 2, OrderID: 1001, ProductID: 2, Quantity: 1, UnitPrice: 700.00
+OrderItemID: 3, OrderID: 1002, ProductID: 2, Quantity: 1, UnitPrice: 700.00
+OrderItemID: 4, OrderID: 1002, ProductID: 3, Quantity: 1, UnitPrice: 150.00
+Step 1: Insert Data into the PRODUCT Table
+sql
+Copy code
+-- Insert products into the PRODUCT table
+INSERT INTO PRODUCT (ProductID, ProductName, Price, StockQuantity, Category)
+VALUES (1, 'Laptop', 1500.00, 100, 'Electronics');
+
+INSERT INTO PRODUCT (ProductID, ProductName, Price, StockQuantity, Category)
+VALUES (2, 'Smartphone', 700.00, 150, 'Electronics');
+
+INSERT INTO PRODUCT (ProductID, ProductName, Price, StockQuantity, Category)
+VALUES (3, 'Headphones', 150.00, 200, 'Accessories');
+Step 2: Insert Data into the CUSTOMER Table
+sql
+Copy code
+-- Insert customers into the CUSTOMER table
+INSERT INTO CUSTOMER (CustomerID, FirstName, LastName, Email, Phone)
+VALUES (101, 'John', 'Doe', 'john.doe@example.com', '1234567890');
+
+INSERT INTO CUSTOMER (CustomerID, FirstName, LastName, Email, Phone)
+VALUES (102, 'Jane', 'Smith', 'jane.smith@example.com', '9876543210');
+Step 3: Insert Data into the ORDERS Table
+sql
+Copy code
+-- Insert orders into the ORDERS table
+INSERT INTO ORDERS (OrderID, OrderDate, CustomerID, TotalAmount)
+VALUES (1001, TO_DATE('2024-11-01', 'YYYY-MM-DD'), 101, 2200.00);
+
+INSERT INTO ORDERS (OrderID, OrderDate, CustomerID, TotalAmount)
+VALUES (1002, TO_DATE('2024-11-02', 'YYYY-MM-DD'), 102, 850.00);
+Step 4: Insert Data into the ORDER_ITEM Table
+sql
+Copy code
+-- Insert order items into the ORDER_ITEM table
+INSERT INTO ORDER_ITEM (OrderItemID, OrderID, ProductID, Quantity, UnitPrice)
+VALUES (1, 1001, 1, 1, 1500.00);
+
+INSERT INTO ORDER_ITEM (OrderItemID, OrderID, ProductID, Quantity, UnitPrice)
+VALUES (2, 1001, 2, 1, 700.00);
+
+INSERT INTO ORDER_ITEM (OrderItemID, OrderID, ProductID, Quantity, UnitPrice)
+VALUES (3, 1002, 2, 1, 700.00);
+
+INSERT INTO ORDER_ITEM (OrderItemID, OrderID, ProductID, Quantity, UnitPrice)
+VALUES (4, 1002, 3, 1, 150.00);
+Summary of the Inserts:
+PRODUCT: We insert three products: a laptop, a smartphone, and headphones, each with a price, stock quantity, and category.
+CUSTOMER: Two customers are inserted, each with a first name, last name, email, and phone number.
+ORDERS: Two orders are inserted with order dates, associated customer IDs, and total amounts.
+ORDER_ITEM: Four items are inserted, each linking an order to products, including quantity and unit price.
+This SQL should insert the data into the tables as per the requirements outlined. Make sure the database schema is set up correctly, and foreign key constraints will ensure that customer and product data is referenced correctly when inserting orders and order items.
